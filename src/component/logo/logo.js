@@ -9,7 +9,7 @@ class Logo extends React.Component {
     render() {
         return (
             <div className="logo-container">
-                <img src={logoImg} alt=""/>
+                <img src={logoImg} alt="" width={200}/>
             </div>
         )
     }

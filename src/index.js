@@ -7,9 +7,11 @@ import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 
 import Login from './container/login/login'
 import Register from './container/register/register'
-import AuthRouter from './component/authroute/authroute'
 import BossInfo from './container/bossinfo/bossinfo'
 import GeniusInfo from './container/geniusinfo/geniusinfo'
+
+import AuthRouter from './component/authroute/authroute'
+import Dashboard from './component/dashboard/dashboard'
 
 import reducers from './reducer'
 import './config'
@@ -31,6 +33,7 @@ ReactDOM.render(
                         <Route path='/geniusinfo' component={GeniusInfo}/>
                         <Route path='/login' component={Login}/>
                         <Route path='/register' component={Register}/>
+                        <Route component={Dashboard}/>
                     </Switch>
                 </div>
             </BrowserRouter>
