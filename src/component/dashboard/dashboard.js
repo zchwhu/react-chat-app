@@ -8,14 +8,11 @@ import {NavBar} from 'antd-mobile'
 import NavLinkBar from '../../component/navlinkbar/navlinkbar'
 import Boss from '../boss/boss'
 import Genius from '../genius/genius'
+import User from '../user/user'
 
 function Msg() {
     return <h2>Msg</h2>
 }
-function User() {
-    return <h2>Me</h2>
-}
-
 
 @connect(
     state => state
@@ -61,7 +58,7 @@ class Dashboard extends React.Component {
                 <NavBar mode="dark" className="fixed-header">
                     {navList.find(v => v.path === pathname).title}
                 </NavBar>
-                <div style={{marginTop: 45}}>
+                <div style={{marginTop: 45, position: 'relative', zIndex: 10}}>
                     <Switch>
                         {navList.map(v => (
                             <Route key={v.path} path={v.path} component={v.component}/>

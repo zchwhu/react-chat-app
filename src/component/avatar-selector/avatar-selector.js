@@ -25,7 +25,7 @@ class AvatarSelector extends React.Component {
         const gridHeader = this.state.text ?
             (<div>
                 <span>已选择头像</span>
-                <img src={this.state.icon} style={{width: 20}}/>
+                <img src={this.state.icon} style={{width: 20}} alt=''/>
             </div>) : (
                 <div>请选择头像</div>
             )

@@ -3,7 +3,6 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
-import {WhiteSpace, WingBlank, Card}from 'antd-mobile'
 import {getUserList} from '../../redux/chatuser.redux'
 import UserCard from '../usercard/usercard'
 
@@ -12,10 +11,6 @@ import UserCard from '../usercard/usercard'
     {getUserList}
 )
 class Genius extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     componentDidMount() {
         this.props.getUserList('boss')
     }

@@ -7,6 +7,7 @@ import {getRedirectPath} from '../util'
 const AUTH_SUCCESS = 'AUTH_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
 const LOAD_DATA = 'LOAD_DATA'
+const LOGOUT = 'LOGOUT'
 
 const initState = {
     redirectTo: '',
@@ -35,11 +36,12 @@ export function user(state = initState, action) {
                 isAuth: false,
                 msg: action.msg
             }
+        case LOGOUT:
+            return {...initState, redirectTo: '/login'}
         default: {
             return state
         }
     }
-    return state
 }
 
 function authSuccess(obj) {
@@ -73,7 +75,7 @@ export function login({user, pwd}) {
             user,
             pwd
         }).then(res => {
-            if (res.status == 200 && res.data.code === 0) {
+            if (res.status === 200 && res.data.code === 0) {
                 dispatch(authSuccess(res.data.data))
             } else {
                 dispatch(errorMsg(res.data.msg))
@@ -118,5 +120,11 @@ export function update(data) {
                     dispatch(errorMsg(res.data.msg))
                 }
             })
+    }
+}
+
+export function logoutSubmit() {
+    return {
+        type: LOGOUT
     }
 }
