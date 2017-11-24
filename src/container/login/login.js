@@ -7,18 +7,16 @@ import {List, InputItem, WingBlank, WhiteSpace, Button} from 'antd-mobile'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {login} from '../../redux/user.redux'
+import enhanceForm from '../../component/enhance-form/enhance-form'
 
 @connect(
     state => state.user,
     {login}
 )
+@enhanceForm
 class Login extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            user: '',
-            pwd: ''
-        }
         this.register = this.register.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
     }
@@ -28,14 +26,7 @@ class Login extends React.Component {
     }
 
     handleLogin() {
-        this.props.login(this.state)
-    }
-
-    handleChange(key, value) {
-        this.setState({
-            [key]: value
-        })
-
+        this.props.login(this.props.state)
     }
 
     render() {
@@ -48,11 +39,11 @@ class Login extends React.Component {
                 <WingBlank>
                     <List>
                         <InputItem
-                            onChange={v => this.handleChange('user', v)}
+                            onChange={v => this.props.handleChange('user', v)}
                         >用户</InputItem>
                         <WhiteSpace/>
                         <InputItem
-                            onChange={v => this.handleChange('pwd', v)}
+                            onChange={v => this.props.handleChange('pwd', v)}
                             type="password"
                         >密码</InputItem>
                     </List>
