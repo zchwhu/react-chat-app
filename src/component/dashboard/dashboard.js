@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/11/21.
  */
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {NavBar} from 'antd-mobile'
 import QueueAnim from 'rc-queue-anim'
